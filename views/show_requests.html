@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Auditorium booking</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<style type="text/css">
+		a {
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+<% if(flash){
+	if(success_msg){ %>
+	<p class="success"><%= success_msg %></p>
+<% }
+} %>
+<table>
+	<tr>
+		<th>Requested By</th>
+		<th>Auditorium Name</th>
+		<th>From</th>
+		<th>To</th>
+		<th>Status</th>
+	</tr>
+	<% for(var i=0;i<allRequests.length;i++){
+		if(allRequests[i].status == 1){ %>
+				<tr class="success">
+					<td>
+						<a href="/requests/showRequest/<%- allRequests[i]._id %>"><%- allRequests[i].firstname + " " + allRequests[i].lastname %></a>
+					</td>
+					<td>
+						<a href="/requests/showRequest/<%- allRequests[i]._id %>"><%- allRequests[i].audit_name %></a>
+					</td>
+					<td>
+						<a href="/requests/showRequest/<%- allRequests[i]._id %>"><%- allRequests[i].required_from.from_date + "-" + allRequests[i].required_from.from_time %></a>
+					</td>
+					<td>
+						<a href="/requests/showRequest/<%- allRequests[i]._id %>"><%- allRequests[i].required_to.to_date + "-" + allRequests[i].required_to.to_time %></a>
+					</td>
+					<td>
+						<a href="/requests/showRequest/<%- allRequests[i]._id %>">Accepted</a>
+					</td>
+				</tr>
+		<% }else if(allRequests[i].status == 2){ %>
+				<tr class="danger">
+					<td>
+						<a href="/requests/showRequest/<%- allRequests[i]._id %>"><%- allRequests[i].firstname + " " + allRequests[i].lastname %></a>
+					</td>
+					<td>
+						<a href="/requests/showRequest/<%- allRequests[i]._id %>"><%- allRequests[i].audit_name %></a>
+					</td>
+					<td>
+						<a href="/requests/showRequest/<%- allRequests[i]._id %>"><%- allRequests[i].required_from.from_date + "-" + allRequests[i].required_from.from_time %></a>
+					</td>
+					<td>
+						<a href="/requests/showRequest/<%- allRequests[i]._id %>"><%- allRequests[i].required_to.to_date + "-" + allRequests[i].required_to.to_time %></a>
+					</td>
+					<td>
+						<a href="/requests/showRequest/<%- allRequests[i]._id %>">Rejected</a>
+					</td>
+				</tr>
+		<% }else{ %>
+				<tr>
+					<td>
+						<a href="/requests/showRequest/<%- allRequests[i]._id %>"><%- allRequests[i].firstname + " " + allRequests[i].lastname %></a>
+					</td>
+					<td>
+						<a href="/requests/showRequest/<%- allRequests[i]._id %>"><%- allRequests[i].audit_name %></a>
+					</td>
+					<td>
+						<a href="/requests/showRequest/<%- allRequests[i]._id %>"><%- allRequests[i].required_from.from_date + "-" + allRequests[i].required_from.from_time %></a>
+					</td>
+					<td>
+						<a href="/requests/showRequest/<%- allRequests[i]._id %>"><%- allRequests[i].required_to.to_date + "-" + allRequests[i].required_to.to_time %></a>
+					</td>
+					<td>
+						<a href="/requests/showRequest/<%- allRequests[i]._id %>">Action required</a>
+					</td>
+				</tr>
+		<% } %>
+	<% } %>
+</table>
+
+</body>
+</html>

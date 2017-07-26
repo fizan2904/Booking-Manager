@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>Auditorium Booking</title>
+<style>
+body{
+max-height:100%;
+margin-left:30%;
+margin-right:30%;
+background-size:40%;
+background-position:center;
+background-repeat:no-repeat;
+background-image:url("http://res.cloudinary.com/hrscywv4p/image/upload/c_limit,fl_lossy,h_1440,w_720,f_auto,q_auto/v1/741153/Srmseal_m478h7.png")
+}
+form{
+margin-top:10%;
+}
+div{
+background:rgba(253, 254, 254,0.9);
+max-height:100%;	}
+input{
+margin-bottom:2%;
+}
+</style>
+</head>
+<body>
+<div>
+
+<h3 style="margin-top:10%;">Auditorium Booking</h3>
+<p>
+Please enter your Name, Date & Time,Reason in the following fields
+<hr>
+<form method="post" action="/requests/add">
+Please enter the following details:<br>
+First Name:<br><Input type="text" name="firstname" size="50" maxlenght="24">
+<br>
+Last Name:<br><Input type="Text" name="lastname" size="50" maxlenght="34">
+<br>
+Email:<br><Input type="Text" name="email" size="50" maxlenght="34">
+<br>
+Auditorium Name:<br><Input type="Text" name="audit_name" size="50" maxlenght="34">
+<br>
+From Date(dd/mm/yyyy):<br><Input type="date" name="from_date" size="50" maxlenght="59">
+<br>
+From Time(HH:MM):<br><Input type="time" name="from_time" size="50" maxlength="24">
+<br>
+To Date(dd/mm/yyyy):<br><Input type="date" name="to_date" size="50" maxlenght="59">
+<br>
+To Time(HH:MM):<br><Input type="time" name="to_time" size="50" maxlength="24">
+<br>
+<br>
+
+<input type="Text" name="reason" rows="5" cols="100" size="50" warp="physical" placeholder="Enter The Reason to Book the Auditorium" >
+<br>
+
+<hr>
+Please take care that everything is filled out correctly,then click "SUBMIT." If you want you can select the "reset" button to start again.
+Clicking the "Submit" button will send your details to the booking authority and you will be charged.<br>
+<input type="reset">
+<input type="submit" value="Submit">
+</form>
+</div>
+</body>
+</html>

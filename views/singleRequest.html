@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Auditorium booking
+	</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+</head>
+<body>
+
+<div>
+	Name : <%- request.firstname + " " + request.lastname %>
+	<br>
+	Auditorium : <%- request.audit_name %>
+	<br>
+	Required From : <%- request.required_from.from_date + "  " + request.required_from.from_time %>
+	<br>
+	Requred Till : <%- request.required_to.to_date + "  " + request.required_to.to_time %>
+	<br>
+	Email ID : <%- request.email %>
+	<br>
+	Reason : <%- request.reason %>
+	<br><br>
+	<% if(request.status == 0){ %>
+		<a href="/requests/accept/<%- request._id %>"><button class="btn btn-primary">Accept Request</button></a>
+		<a href="/requests/reject/<%- request._id %>"><button class="btn btn-danger">Reject Request</button></a>
+	<% }else if(request.status == 1){ %>
+		<button class="btn btn-info">Already accepted</button>
+	<% }else{ %>
+		<button class="btn btn-info">Already rejected</button>
+	<% } %>
+</div>
+
+</body>
+</html>
